@@ -23,7 +23,6 @@ struct DataObserver<Element> {
         value = val
     }
     
-    
     mutating func bind(_ listner: Listner?) {
         
         guard let listnerAvail = listner else { return }
