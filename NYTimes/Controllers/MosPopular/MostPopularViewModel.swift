@@ -36,8 +36,6 @@ final class MostPopularViewModel {
                     
                     if let jsonDict = json as? Parameters{
                         
-                        //print("jsonDict = \(jsonDict)")
-                        
                         let jsonData = try JSONSerialization.data(withJSONObject: jsonDict, options: .prettyPrinted)
                         
                         let decodedResponse = try JSONDecoder().decode(SearchResponse.self, from: jsonData)

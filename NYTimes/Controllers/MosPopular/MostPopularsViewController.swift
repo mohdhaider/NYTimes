@@ -56,12 +56,19 @@ class MostPopularsViewController: UIViewController {
     
     func setupInitials() {
         
-        self.title = "NY Times Most Popular"
         
+        setupNavigationBar()
         dataBinding()
         setupTable()
         setupRefreshControl()
         fetchNewPopulars()
+    }
+    
+    func setupNavigationBar() {
+        
+        title = "NY Times Most Popular"
+        
+        
     }
     
     func setupRefreshControl() {
