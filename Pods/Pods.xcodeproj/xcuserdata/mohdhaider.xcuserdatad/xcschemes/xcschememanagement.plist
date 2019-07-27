@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Kingfisher.xcscheme</key>
+		<key>Kingfisher-framework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Kingfisher-library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
