@@ -38,7 +38,7 @@ class MostPopularsViewController: UIViewController {
     
     private let viewModel = MostPopularViewModel()
     
-    private var arrPopulars = [MostPopularCellContentProtocol]()
+    private var arrPopulars = [DataObserver<MostPopularCellViewModel>]()
     
     private let tableSerialQueue:DispatchQueue = DispatchQueue(label: "com.nytimesTable")
     
@@ -86,7 +86,8 @@ class MostPopularsViewController: UIViewController {
         
         viewModel.arrPopulars.bind {[weak self] (populars) in
             
-            self?.arrPopulars = populars
+            self?.arrPopulars = populars.map{ DataObserver<MostPopularCellViewModel>(MostPopularCellViewModel(info: $0)) }
+            
             self?.refreshTable()
         }
     }

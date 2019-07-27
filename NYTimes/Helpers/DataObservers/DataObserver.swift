@@ -29,4 +29,11 @@ struct DataObserver<Element> {
         
         listners.append(listnerAvail)
     }
+    
+    mutating func singleBind(_ listner: Listner?) {
+        
+        listners.removeAll()
+        guard let listnerAvail = listner else { return }
+        listners.append(listnerAvail)
+    }
 }

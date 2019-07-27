@@ -42,14 +42,23 @@ class MostPopularTableViewCell: UITableViewCell {
     
     // MARK:- Class Helpers -
     
-    func populateInfo(_ info: MostPopularCellContentProtocol?) {
+    func populateInfo(_ info: DataObserver<MostPopularCellViewModel>?) {
         
-        guard let info = info else { return }
+        guard var info = info else { return }
         
-        avatar.setImage(forUrl: info.imageUrl, placeholderImage: nil)
-        heading.text = info.heading
-        content.text = info.content
-        date.text = info.date
-        section.text = info.section
+        func populateContent(_ info:MostPopularCellViewModel) {
+
+            avatar.setImage(forUrl: info.imageUrl, placeholderImage: nil)
+            heading.text = info.heading
+            content.text = info.content
+            date.text = info.date
+            section.text = info.section
+        }
+        
+        info.singleBind { (cellModel) in
+            
+            populateContent(cellModel)
+        }
+        populateContent(info.value)
     }
 }
